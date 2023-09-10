@@ -32,6 +32,8 @@ public class PostService {
                 .title(request.getTitle())
                 .content(request.getContent())
                 .author(author)
+                .image(request.getImage())
+                .sortDescription(request.getSortDescription())
                 .category(category)
                 .build();
 
@@ -42,6 +44,8 @@ public class PostService {
         postRepository.findById(id).ifPresentOrElse(post -> {
             post.setTitle(request.getTitle());
             post.setContent(request.getContent());
+            post.setImage(request.getImage());
+            post.setSortDescription(request.getSortDescription());
             post.setCategory(categoryRepository.findById(Long.valueOf(request.getCategory())).orElseThrow(() -> new RuntimeException("Category not found")));
             postRepository.save(post);
         }, () -> {

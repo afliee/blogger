@@ -1,12 +1,3 @@
-/*
-Theme Name: TechLight
-Theme URI: https://templatesjungle.com/
-Author: TemplatesJungle
-Author URI: https://templatesjungle.com/
-Description: TechLight is a free tech blog HTML CSS website template by TemplatesJungle.
-Version: 1.1
-*/
-
 /*--------------------------------------------------------------
 /** Base Styles
 --------------------------------------------------------------*/
@@ -15,7 +6,7 @@ Version: 1.1
   --grey-color: #444444;
   --light-grey-color: #777777;
   --bs-body-font-family: 'Inter';
-};
+}
 /*--------------------------------------------------------------
 /** Typography
 --------------------------------------------------------------*/
@@ -392,7 +383,6 @@ button.btn-bg-white:hover{
 .search-popup.is-visible {
   opacity: 1;
   visibility: visible;
-  cursor: -webkit-image-set(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23FFF' d='M20 1l-1-1-9 9-9-9-1 1 9 9-9 9 1 1 9-9 9 9 1-1-9-9'/%3E%3C/svg%3E") 1x, url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23000' d='M20 1l-1-1-9 9-9-9-1 1 9 9-9 9 1 1 9-9 9 9 1-1-9-9'/%3E%3C/svg%3E") 2x), pointer;
   cursor: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23000' d='M20 1l-1-1-9 9-9-9-1 1 9 9-9 9 1 1 9-9 9 9 1-1-9-9'/%3E%3C/svg%3E"), pointer;
   -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
   -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
@@ -874,7 +864,7 @@ button.btn-bg-white:hover{
 }
 .btn-close:hover {
   color: #ffffff;
-  opacity: none;
+
 }
 
 /* ------ Quantity ------*/
@@ -904,7 +894,6 @@ button.btn-bg-white:hover{
 .rating svg.star {
   width: 16px;
   height: 16px;
-  fill: var(--primary-color);
 }
 .review-content .swiper-arrow.swiper-arrow-next {
   right: 0;

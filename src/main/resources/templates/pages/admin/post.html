@@ -65,7 +65,7 @@
                     <h3 class="text-uppercase">Post Review</h3>
                     <div class="form-group">
                         <div class="position-relative">
-                            <select name="category" id="category" class="form-control">
+                            <select name="category" id="category" class="form-control" required>
                                 <th:block th:each="category : ${categories}">
                                     <option th:value="${category.id}" th:text="${category.name}"></option>
                                 </th:block>
@@ -75,7 +75,19 @@
                     <div class="form-group">
                         <div class="position-relative">
                             <label for="title" class="form-control-label">Title</label>
-                            <input type="text" class="form-control" name="title" id="title" placeholder="Tile">
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Tile" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="position-relative">
+                            <label for="image" class="form-control-label">image uri</label>
+                            <input type="text" class="form-control" name="title" id="image" placeholder="Image URI" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="position-relative">
+                            <label for="sortDescription" class="form-control-label">Sort Description</label>
+                            <input type="text" class="form-control" name="title" id="sortDescription" placeholder="Sort Description pls" required>
                         </div>
                     </div>
                 </div>

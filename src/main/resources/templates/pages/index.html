@@ -161,13 +161,13 @@
 		<div class="swiper main-slider overflow-hidden">
 		    <div class="swiper-wrapper">
 				<div class="swiper-slide" th:each="slide : ${slider}">
-					<img th:src="@{'images/slider-img1.jpg'}" class="slider-img img-fluid">
+					<img th:src="@{${slide?.image == null ? '/images/slider-img1.jpg' : slide.image}}" class="slider-img img-fluid">
 					<div class="carousel-text text-start">
 						<div class="story-title-wrap mt-3">
 							<div class="post-meta"><a href="blog.html" th:text="${slide.category.name}">Fashion</a></div>
 							<h2 class="story-title"><a href="single-post.html" th:text="${slide.title}">The most powerful small sized robots in
 								the world</a></h2>
-							<p >How did the hand pies look? Did you love the brownies? How many choux did you eat in one
+							<p th:text="${slide.sortDescription}">How did the hand pies look? Did you love the brownies? How many choux did you eat in one
 								sitting? After a gorgeous selection of our favorites for a client to send as a new
 								year’s gift.</p>
 							<div class="entry-meta">

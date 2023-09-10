@@ -13,4 +13,6 @@ public class PostRequest {
     private String content;
     private String author;
     private String category;
+    private String image;
+    private String sortDescription;
 }

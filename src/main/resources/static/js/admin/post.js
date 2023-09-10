@@ -22,7 +22,9 @@ $(document).ready(function () {
             title: $("#title").val(),
             content: content,
             category: $("#category").val(),
-            author: $("#id").val()
+            author: $("#id").val(),
+            imageUri: $("#image").val(),
+            sortDescription: $("#sortDescription").val(),
         }
 
         $.ajax({

@@ -49,4 +49,5 @@ public class Post extends Base<Long> {
             cascade = CascadeType.ALL
     )
     private Set<Comment> comments = new HashSet<>();
+    private String sortDescription;
 }
