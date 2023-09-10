@@ -15,6 +15,25 @@ public class PostController {
     private final PostService postService;
     private final CategoryRepository categoryRepository;
 
+    @GetMapping(value = {"","/", "/index"})
+    public String index(Model model) {
+        var posts = postService.findAll();
+        var categories = categoryRepository.findAll();
+
+        model.addAttribute("categories", categories);
+        model.addAttribute("posts", posts);
+        return "pages/home/posts";
+    }
+    @GetMapping("/{id}")
+    public String getPost(
+            @PathVariable Long id,
+            Model model
+    ) {
+        var post = postService.findById(id);
+        model.addAttribute("post", post);
+        return "pages/home/single_post";
+    }
+
     @GetMapping("/delete")
     public void delete(@RequestParam Long id) {
         postService.delete(id);

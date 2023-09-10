@@ -122,7 +122,7 @@
 							<a class="nav-link" href="about.html">About</a>
 						</li>
 				        <li class="nav-item dropdown">
-				         	<a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">Blog<svg class="bi" width="10" height="10"><use xlink:href="#caret-down"></use></svg></a>
+				         	<a class="nav-link" th:href="@{/post(filter = all)}" role="button">Blog<svg class="bi" width="10" height="10"><use xlink:href="#caret-down"></use></svg></a>
 				        </li>
 						<li class="nav-item">
 							<a class="nav-link" th:href="@{/contact}">Contact</a>
@@ -161,7 +161,7 @@
 		<div class="swiper main-slider overflow-hidden">
 		    <div class="swiper-wrapper">
 				<div class="swiper-slide" th:each="slide : ${slider}">
-					<img th:src="@{${slide?.image == null ? '/images/slider-img1.jpg' : slide.image}}" class="slider-img img-fluid">
+					<img th:src="@{${slide?.image == null ? '/images/slider-img1.jpg' : slide.image}}" class="slider-img img-fluid w-100" style="max-height: 500px; background-size: cover; background-repeat: no-repeat">
 					<div class="carousel-text text-start">
 						<div class="story-title-wrap mt-3">
 							<div class="post-meta"><a href="blog.html" th:text="${slide.category.name}">Fashion</a></div>

@@ -24,6 +24,7 @@ public class SecurityConfiguration {
     private final LogoutHandler logoutHandler;
     private final String[] publicRoutes = new String[] {
             "/",
+            "/post",
             "/contact",
             "/api/auth/**",
             "/post/**",

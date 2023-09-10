@@ -8,6 +8,8 @@ import com.ito.bloger.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PostService {
@@ -17,6 +19,10 @@ public class PostService {
 
     public Post findById(Long id) {
         return postRepository.findById(id).orElseThrow(() -> new RuntimeException("Post not found"));
+    }
+
+    public List<Post> findAll() {
+        return postRepository.findAll();
     }
 
     public void create(PostRequest request) {
@@ -47,6 +53,15 @@ public class PostService {
             post.setImage(request.getImage());
             post.setSortDescription(request.getSortDescription());
             post.setCategory(categoryRepository.findById(Long.valueOf(request.getCategory())).orElseThrow(() -> new RuntimeException("Category not found")));
+            postRepository.save(post);
+        }, () -> {
+            throw new RuntimeException("Post not found");
+        });
+    }
+
+    public void updateViews(Long id) {
+        postRepository.findById(id).ifPresentOrElse(post -> {
+            post.setViews(post.getViews() + 1);
             postRepository.save(post);
         }, () -> {
             throw new RuntimeException("Post not found");

@@ -50,4 +50,5 @@ public class Post extends Base<Long> {
     )
     private Set<Comment> comments = new HashSet<>();
     private String sortDescription;
+    private long views = 0;
 }

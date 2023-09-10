@@ -20,4 +20,9 @@ public class PostApiController {
     public void update(@RequestBody PostRequest request, @RequestParam Long id) {
         postService.update(request, id);
     }
+
+    @PutMapping("/update/views")
+    public void updateViews(@RequestParam Long id) {
+        postService.updateViews(id);
+    }
 }
