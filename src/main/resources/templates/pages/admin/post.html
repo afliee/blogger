@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/formLayout.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/post.css}">
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-12 mb-3">
+            <table class="w-100 table-responsive table-hover table-striped">
+                <thead class="table-header">
+                <tr>
+                    <th>Post Id</th>
+                    <th>Post Title</th>
+                    <th>Post Content</th>
+                    <th>Post Created At</th>
+                    <th>Post Author</th>
+                    <th>Post Category</th>
+                    <th>Post Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:if="${posts.size() == 0}">
+                    <tr>
+                        <td colspan="7" class="text-center">No Post Found</td>
+                    </tr>
+                </th:block>
+
+                <th:block th:if="${posts.size() != 0}">
+                    <tr th:each="post : ${posts}">
+                        <td th:text="${post.id}"></td>
+                        <td th:text="${post.title}"></td>
+                        <th:block>
+                            <td th:if="${post.content != null}">Co Trong DB</td>
+                            <td th:if="${post.content == null}">Khong Co Trong DB</td>
+                        </th:block>
+                        <td th:text="${post.createdDate}"></td>
+                        <td th:text="${post.author.fullName}"></td>
+                        <td th:text="${post.category.name}"></td>
+                        <td>
+                            <a th:href="@{/admin/post/details(id=${post.id})}" class="btn btn-primary">Details</a>
+                            <a th:href="@{/post/edit(id=${post.id})}" class="btn btn-warning">Edit</a>
+                            <a th:href="@{/post/delete(id=${post.id})}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 row">
+            <div class="col-12">
+                <form action="" onsubmit="return false" method="get">
+                    <textarea class="form-control " id="editor" name="editor" rows="10" cols="80"></textarea>
+                </form>
+            </div>
+            <div class=" col-12 card mt-3">
+                <div class="card-title">
+                    <h3 class="text-uppercase">Post Review</h3>
+                    <div class="form-group">
+                        <div class="position-relative">
+                            <select name="category" id="category" class="form-control">
+                                <th:block th:each="category : ${categories}">
+                                    <option th:value="${category.id}" th:text="${category.name}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="position-relative">
+                            <label for="title" class="form-control-label">Title</label>
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Tile">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body post-review">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<input type="hidden" name="id" id="id" th:value="${user?.id}">
+<script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/popper.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.js}"></script>
+<script th:src="@{/webjars/ckeditor/4.19.0/full/ckeditor.js}"></script>
+<script th:src="@{/webjars/ckeditor/4.19.0/full/styles.js}"></script>
+<script th:src="@{/webjars/ckeditor/4.19.0/full/adapters/jquery.js}"></script>
+<script th:src="@{/js/admin/post.js}"></script>
+</body>
+</html>

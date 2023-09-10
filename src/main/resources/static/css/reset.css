@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    /*font: inherit;*/
+}
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+input,
+select,
+textarea {
+    background-color: transparent;
+    outline: none;
+}
+button {
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+}
+body {
+    min-height: 100vh;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    --bs-body-font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--color-primary);
+    --bs-btn-hover-bg: var(--color-primary-hover);
+    --bs-btn-border-color: var(--color-primary);
+    --bs-btn-hover-border-color: var(--color-primary-hover);
+    --bs-btn-color: #fff;
+    --bs-btn-color-hover: #fff;
+}
+
+.btn-outline-primary {
+    --bs-btn-border-color: var(--color-primary);
+    --bs-btn-border-color-hover: var(--color-primary-hover);
+    --bs-btn-color: var(--color-primary);
+    --bs-btn-hover-bg: var(--color-primary-hover);
+}
+.text-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.text-title-small {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.nav-tabs {
+    border-bottom: 0;
+    --bs-nav-tabs-border-color: transparent;
+    --bs-nav-tabs-border-width: 0;
+}
+
+.nav-tabs .nav-link {
+    border: 0;
+    border-radius: 0;
+    color: #000;
+    /*color: var(--color-primary);*/
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+a {
+    text-decoration: none;
+}
+
+.fc-col-header-cell-cushion {
+    color: var(--color-primary);
+}
+
+.fc-col-header-cell-cushion:hover {
+    color: var(--color-primary-hover);
+}
+
+.border {
+    --bs-border-width: 1px;
+    --bs-border-color: var(--color-primary);
+    --bs-border-style: solid;
+}
+
+
+.py-4-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}

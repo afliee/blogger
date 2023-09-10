@@ -1,0 +1,75 @@
+
+.form-group {
+    margin-bottom: 0.7rem;
+}
+.form-group label {
+    color: rgba(35, 28, 99, 0.7);
+    font-weight: 600;
+}
+.form-group small {
+    font-size: 0.7rem;
+}
+.form-group.with-title {
+    position: relative;
+}
+.form-group.with-title label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    font-size: 0.6rem;
+    background-color: #e9ecef;
+    width: 100%;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-group.with-title .form-control,
+.form-group.with-title .dataTable-input {
+    padding-top: 2rem;
+}
+.form-group.with-title .form-control:focus ~ label,
+.form-group.with-title .dataTable-input:focus ~ label {
+    border-left: 1px solid #435ebe;
+    border-top: 1px solid #435ebe;
+    border-right: 1px solid #435ebe;
+}
+.form-group[class*='has-icon-'].has-icon-left .form-control {
+    padding-left: 2.5rem;
+}
+.form-group[class*='has-icon-'].has-icon-left .form-control-icon {
+    left: 0;
+}
+.form-group[class*='has-icon-'].has-icon-right .form-control {
+    padding-right: 2.5rem;
+}
+.form-group[class*='has-icon-'].has-icon-right .form-control-icon {
+    right: 0;
+}
+.form-group[class*='has-icon-'] .form-control:focus ~ .form-control-icon i,
+.form-group[class*='has-icon-'] .form-control:focus ~ .form-control-icon svg {
+    color: #5a8dee;
+}
+.form-group[class*='has-icon-'] .form-control.form-control-xl {
+    padding-left: 3rem;
+}
+.form-group[class*='has-icon-'] .form-control.form-control-xl ~ .form-control-icon i {
+    font-size: 1.6rem;
+}
+.form-group[class*='has-icon-'] .form-control.form-control-xl ~ .form-control-icon  i:before {
+    color: #a6a8aa;
+}
+.form-group[class*='has-icon-'] .form-control-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 0.6rem;
+}
+.form-group[class*='has-icon-'] .form-control-icon i,
+.form-group[class*='has-icon-'] .form-control-icon svg {
+    width: 1.2rem;
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+.form-group[class*='has-icon-'] .form-control-icon i:before,
+.form-group[class*='has-icon-'] .form-control-icon svg:before {
+    vertical-align: sub;
+}
