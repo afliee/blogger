@@ -37,6 +37,18 @@
                             <input type="text" class="form-control" name="title" id="title" placeholder="Tile" th:value="${post.title}">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="position-relative">
+                            <label for="image" class="form-control-label">image uri</label>
+                            <input type="text" class="form-control" name="title" id="image" placeholder="Image URI" required th:value="${post.image}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="position-relative">
+                            <label for="sortDescription" class="form-control-label">Sort Description</label>
+                            <input type="text" class="form-control" name="title" id="sortDescription" th:value="${post.sortDescription}" placeholder="Sort Description pls" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body post-review">
 
@@ -85,7 +97,9 @@
                 title: $("#title").val(),
                 content: content,
                 category: $("#category").val(),
-                author: $("#id").val()
+                author: $("#id").val(),
+                image: $("#image").val(),
+                sortDescription: $("#sortDescription").val(),
             }
 
             $.ajax({
