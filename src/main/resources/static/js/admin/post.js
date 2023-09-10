@@ -23,7 +23,7 @@ $(document).ready(function () {
             content: content,
             category: $("#category").val(),
             author: $("#id").val(),
-            imageUri: $("#image").val(),
+            image: $("#image").val(),
             sortDescription: $("#sortDescription").val(),
         }
 
