@@ -59,15 +59,19 @@ public class PostService {
         });
     }
 
-    public void updateViews(Long id) {
+    public long updateViews(Long id) {
         postRepository.findById(id).ifPresentOrElse(post -> {
             post.setViews(post.getViews() + 1);
             postRepository.save(post);
         }, () -> {
             throw new RuntimeException("Post not found");
         });
+        return postRepository.findById(id).get().getViews();
     }
 
+    public List<Post> findAllPostLatest() {
+        return postRepository.findAllByOrderByCreatedDateDesc();
+    }
     public void delete(Long id) {
         postRepository.deleteById(id);
     }

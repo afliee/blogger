@@ -22,7 +22,7 @@ public class PostApiController {
     }
 
     @PutMapping("/update/views")
-    public void updateViews(@RequestParam Long id) {
-        postService.updateViews(id);
+    public long updateViews(@RequestParam Long id) {
+        return postService.updateViews(id);
     }
 }

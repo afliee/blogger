@@ -178,51 +178,6 @@
 						</div>
 					</div>
 				</div>
-
-<!--		        <div class="swiper-slide">-->
-<!--					<img src="images/slider-img1.jpg" class="slider-img img-fluid">-->
-<!--				  	<div class="carousel-text text-start">-->
-<!--				        <div class="story-title-wrap mt-3">-->
-<!--							<div class="post-meta"><a href="blog.html">Fashion</a></div>-->
-<!--							<h2 class="story-title"><a href="single-post.html">The most powerful small sized robots in the world</a></h2>				-->
-<!--							<p>How did the hand pies look? Did you love the brownies? How many choux did you eat in one sitting? After  a gorgeous selection of our favorites for a client to send as a new year’s gift.</p>-->
-<!--							<div class="entry-meta">-->
-<!--								<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>-->
-<!--								<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--				    </div>-->
-<!--				</div>-->
-
-<!--				<div class="swiper-slide">-->
-<!--					<img src="images/slider-img2.jpg" class="slider-img img-fluid">-->
-<!--				  	<div class="carousel-text text-start">-->
-<!--				        <div class="story-title-wrap mt-3">-->
-<!--							<div class="post-meta"><a href="blog.html">Fashion</a></div>-->
-<!--							<h2 class="story-title"><a href="single-post.html">The most powerful small sized robots in the world</a></h2>				-->
-<!--							<p>How did the hand pies look? Did you love the brownies? How many choux did you eat in one sitting? After  a gorgeous selection of our favorites for a client to send as a new year’s gift.</p>-->
-<!--							<div class="entry-meta">-->
-<!--								<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>-->
-<!--								<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--				    </div>-->
-<!--				</div>-->
-
-<!--				<div class="swiper-slide">-->
-<!--					<img src="images/slider-img3.jpg" class="slider-img img-fluid">-->
-<!--				  	<div class="carousel-text text-start">-->
-<!--				        <div class="story-title-wrap mt-3">-->
-<!--							<div class="post-meta"><a href="blog.html">Fashion</a></div>-->
-<!--							<h2 class="story-title"><a href="single-post.html">The most powerful small sized robots in the world</a></h2>				-->
-<!--							<p>How did the hand pies look? Did you love the brownies? How many choux did you eat in one sitting? After  a gorgeous selection of our favorites for a client to send as a new year’s gift.</p>-->
-<!--							<div class="entry-meta">-->
-<!--								<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>-->
-<!--								<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--				    </div>-->
-<!--				</div>-->
 		    </div>
 		</div>
 	    <div class="swiper-icon swiper-arrow slider-arrow-next position-absolute top-0 bottom-0 end-0 d-flex align-items-center">
@@ -232,62 +187,24 @@
           <a href="#"><svg class="bi" width="60" height="60"><use xlink:href="#long-arrow-alt-left"></use></svg></a>
         </div>
         <div class="swiper-pagination main-slider-pagination"></div>
-
 	</div>
 </section>
 
 <section id="blog-section" class="bg-light padding-large">
 	<div class="container">
 		<div class="row">
-			<div class="post-item col-md-3">
+			<div class="post-item col-md-3" th:each="post : ${posts}">
 				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/postitem1.jpg" alt="stories" class="lgpostImg img-fluid"></a>
+					<a th:href="@{/post/{id}(id = ${post.id})}" class="zoom-in"><img th:src="@{${post.image}}" alt="stories" class="lgpostImg img-fluid" style="max-height: 180px"></a>
 				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">10 Things That Make the iPhone and iPod</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
+				<div class="story-title-wrap mt-3 d-flex flex-column justify-content-between">
+					<div>
+						<div class="post-meta"><a href="blog.html" th:text="${post.category.name}">Fashion</a></div>
+						<h3 class="story-title"><a th:href="@{/post/{id}(id = ${post.id})}" th:text="${post.title}">10 Things That Make the iPhone and iPod</a></h3>
 					</div>
-				</div>
-			</div>
-			<div class="post-item col-md-3">
-				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/postitem2.jpg" alt="stories" class="lgpostImg img-fluid"></a>
-				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">10 Things That Make the iPhone and iPod</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
-					</div>
-				</div>
-			</div>
-			<div class="post-item col-md-3">
-				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/postitem3.jpg" alt="stories" class="lgpostImg img-fluid"></a>
-				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">10 Things That Make the iPhone and iPod</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
-					</div>
-				</div>
-			</div>
-			<div class="post-item col-md-3">
-				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/postitem4.jpg" alt="stories" class="lgpostImg img-fluid"></a>
-				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">10 Things That Make the iPhone and iPod</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
+					<div class="entry-meta ">
+						<span class="author"><span class="sp">by</span><span class="author-name" th:text="${post.author?.fullName == null ? post.author.username : post.author.fullName}">Jenny Matt</span></span>
+						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="" th:text="${#temporals.format(post.createdDate, 'EE MMM dd, yyyy')}">Feb 12, 2022</time></span>
 					</div>
 				</div>
 			</div>
@@ -301,45 +218,21 @@
 			<div class="section-header">
 				<h4 class="elementary-title">Latest Posts</h4>
 			</div><!--section-header-->
-			<a href="blog.html" class="button">All news<svg class="bi" width="18" height="18"><use xlink:href="#chevron-forward"></use></svg></a>
+			<a th:href="@{/post}" class="button">All news<svg class="bi" width="18" height="18"><use xlink:href="#chevron-forward"></use></svg></a>
 		</div>
 		<div class="row">
-			<div class="post-item col-md-4">
+			<div class="post-item col-md-4" th:each="post : ${latestPost}">
 				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/item1.jpg" alt="stories" class="blogImg img-fluid"></a>
+					<a th:href="@{/post/{id}(id = ${post.id})}" class="zoom-in"><img th:src="@{${post.image}}" alt="stories" class="lgpostImg img-fluid" style="max-height: 180px"></a>
 				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">10 Distinctive Features of the iPhone and iPod Touch</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
+				<div class="story-title-wrap mt-3 d-flex flex-column justify-content-between">
+					<div>
+						<div class="post-meta"><a href="blog.html" th:text="${post.category.name}">Fashion</a></div>
+						<h3 class="story-title"><a th:href="@{/post/{id}(id = ${post.id})}" th:text="${post.title}">10 Things That Make the iPhone and iPod</a></h3>
 					</div>
-				</div>
-			</div>
-			<div class="post-item col-md-4">
-				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/item2.jpg" alt="stories" class="blogImg img-fluid"></a>
-				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">10 Things That Make the iPhone and iPod touch different</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
-					</div>
-				</div>
-			</div>
-			<div class="post-item col-md-4">
-				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/item3.jpg" alt="stories" class="blogImg img-fluid"></a>
-				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">10 Things That Make the iPhone and iPod touch different</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
+					<div class="entry-meta ">
+						<span class="author"><span class="sp">by</span><span class="author-name" th:text="${post.author?.fullName == null ? post.author.username : post.author.fullName}">Jenny Matt</span></span>
+						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="" th:text="${#temporals.format(post.createdDate, 'EE MMM dd, yyyy')}">Feb 12, 2022</time></span>
 					</div>
 				</div>
 			</div>

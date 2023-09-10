@@ -16,7 +16,9 @@ public class PostController {
     private final CategoryRepository categoryRepository;
 
     @GetMapping(value = {"","/", "/index"})
-    public String index(Model model) {
+    public String index(
+            @RequestParam(name = "filter", defaultValue = "all", required = false) String filter,
+            Model model) {
         var posts = postService.findAll();
         var categories = categoryRepository.findAll();
 
