@@ -1,8 +1,11 @@
 package com.ito.bloger.service;
 
+import com.ito.bloger.dto.request.CommentRequest;
 import com.ito.bloger.dto.request.PostRequest;
+import com.ito.bloger.enitty.Comment;
 import com.ito.bloger.enitty.Post;
 import com.ito.bloger.repository.CategoryRepository;
+import com.ito.bloger.repository.CommentRepository;
 import com.ito.bloger.repository.PostRepository;
 import com.ito.bloger.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +19,7 @@ public class PostService {
     private final PostRepository postRepository;
     private final CategoryRepository categoryRepository;
     private final UserRepository userRepository;
+    private final CommentRepository commentRepository;
 
     public Post findById(Long id) {
         return postRepository.findById(id).orElseThrow(() -> new RuntimeException("Post not found"));
@@ -69,6 +73,22 @@ public class PostService {
         return postRepository.findById(id).get().getViews();
     }
 
+    public void comment(Long postId, CommentRequest request) {
+        postRepository.findById(postId).ifPresentOrElse(post -> {
+            var author = userRepository.findById(Long.valueOf(request.getAuthor())).orElseThrow(() -> new RuntimeException("User not found"));
+
+            var comment = Comment.builder()
+                    .author(author)
+                    .post(post)
+                    .content(request.getContent())
+                    .build();
+            commentRepository.save(comment);
+            post.getComments().add(comment);
+            postRepository.save(post);
+        }, () -> {
+            throw new RuntimeException("Post not found");
+        });
+    }
     public List<Post> findAllPostLatest() {
         return postRepository.findAllByOrderByCreatedDateDesc();
     }

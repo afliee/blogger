@@ -1,7 +1,9 @@
 package com.ito.bloger.controller.api;
 
+import com.ito.bloger.dto.request.CommentRequest;
 import com.ito.bloger.dto.request.PostRequest;
 import com.ito.bloger.service.PostService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,5 +26,13 @@ public class PostApiController {
     @PutMapping("/update/views")
     public long updateViews(@RequestParam Long id) {
         return postService.updateViews(id);
+    }
+
+    @PostMapping("/comment")
+    public void comment(
+           @RequestParam Long postId,
+           @RequestBody @Valid CommentRequest request
+    ) {
+        postService.comment(postId, request);
     }
 }
