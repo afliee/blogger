@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Random;
 
 @Controller
 @RequestMapping("/")
@@ -28,6 +29,13 @@ public class IndexController {
         }
 
         var latestPost = postRepository.findAllByOrderByCreatedDateDesc().stream().limit(3).toList();
+//        get three post random from postAll
+        var random = new Random();
+        var randomPost = postsAll.get(random.nextInt(postsAll.size()));
+        var randomPost2 = postsAll.get(random.nextInt(postsAll.size()));
+        var randomPost3 = postsAll.get(random.nextInt(postsAll.size()));
+
+        model.addAttribute("randomPost", List.of(randomPost, randomPost2, randomPost3));
         model.addAttribute("latestPost", latestPost);
         model.addAttribute("slider", slider);
         model.addAttribute("posts", posts);

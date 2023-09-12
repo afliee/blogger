@@ -118,9 +118,6 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">Home<svg class="bi" width="10" height="10"><use xlink:href="#caret-down"></use></svg></a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
-						</li>
 				        <li class="nav-item dropdown">
 				         	<a class="nav-link" th:href="@{/post(filter = all)}" role="button">Blog<svg class="bi" width="10" height="10"><use xlink:href="#caret-down"></use></svg></a>
 				        </li>
@@ -130,18 +127,6 @@
 
 						<li class="nav-item">
 		                  <div class="user-items">
-		                    <ul class="d-flex justify-content-end list-unstyled m-0">
-		                      <li>
-		                        <a href="login.html">
-		                          <svg class="bi" width="20" height="20"><use xlink:href="#person"></use></svg>
-		                        </a>
-		                      </li>
-		                      <li>
-		                        <a href="#" class="search-button">
-		                          <svg class="bi" width="20" height="20"><use xlink:href="#search"></use></svg>
-		                        </a>
-		                      </li>
-		                    </ul>
 		                  </div>
 		                </li>
 
@@ -246,45 +231,20 @@
 			<div class="section-header">
 				<h4 class="elementary-title">Popular Posts</h4>
 			</div><!--section-header-->
-			<a href="blog.html" class="button">All news<svg class="bi" width="18" height="18"><use xlink:href="#chevron-forward"></use></svg></a>
 		</div>
 		<div class="row">
-			<div class="post-item col-md-4">
+			<div class="post-item col-md-4" th:each="post : ${randomPost}">
 				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/item4.jpg" alt="stories" class="blogImg img-fluid"></a>
+					<a th:href="@{/post/{id}(id = ${post.id})}" class="zoom-in"><img th:src="@{${post.image}}" alt="stories" class="lgpostImg img-fluid" style="max-height: 180px"></a>
 				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">Take Your Jeans From Sunday Brunch To A Monday Work Meeting</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
+				<div class="story-title-wrap mt-3 d-flex flex-column justify-content-between">
+					<div>
+						<div class="post-meta"><a href="#" th:text="${post.category.name}">Fashion</a></div>
+						<h3 class="story-title"><a th:href="@{/post/{id}(id = ${post.id})}" th:text="${post.title}">10 Things That Make the iPhone and iPod</a></h3>
 					</div>
-				</div>
-			</div>
-			<div class="post-item col-md-4">
-				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/item5.jpg" alt="stories" class="blogImg img-fluid"></a>
-				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">Take Your Jeans From Sunday Brunch To A Monday Work Meeting</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
-					</div>
-				</div>
-			</div>
-			<div class="post-item col-md-4">
-				<figure class="zoom-effect">
-					<a href="single-post.html" class="zoom-in"><img src="images/item6.jpg" alt="stories" class="blogImg img-fluid"></a>
-				</figure>
-				<div class="story-title-wrap mt-3">
-					<div class="post-meta"><a href="blog.html">Fashion</a></div>
-					<h3 class="story-title"><a href="single-post.html">Take Your Jeans From Sunday Brunch To A Monday Work Meeting</a></h3>				
-					<div class="entry-meta">
-						<span class="author"><span class="sp">by</span><span class="author-name">Jenny Matt</span></span>
-						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="">Feb 12, 2022</time></span>
+					<div class="entry-meta ">
+						<span class="author"><span class="sp">by</span><span class="author-name" th:text="${post.author?.fullName == null ? post.author.username : post.author.fullName}">Jenny Matt</span></span>
+						<span class="meta-date"><span class="sp">-</span><time class="published" datetime="" th:text="${#temporals.format(post.createdDate, 'EE MMM dd, yyyy')}">Feb 12, 2022</time></span>
 					</div>
 				</div>
 			</div>

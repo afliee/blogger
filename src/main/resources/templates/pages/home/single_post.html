@@ -359,11 +359,11 @@
             <div class="col-md-3 mb-5">
                 <h5>About us</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a href="#" class="nav-link">Huynh Quoc Truong</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Dang Thi Minh Thu</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Nguyen Trong Dat</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Dinh Hoang Phuc</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">La Quoc Bao</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Huynh Quoc Truong - 52101007</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Dang Thi Minh Thu - 52100843</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Nguyen Trong Dat - 52100176</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Dinh Hoang Phuc - 52100290</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">La Quoc Bao - 52100872</a></li>
                 </ul>
             </div>
         </div>
@@ -374,63 +374,6 @@
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/plugins.js}"></script>
 <script th:src="@{/js/script.js}"></script>
-<script>
-    $(document).ready(function () {
-        const id = $('#id').val();
 
-        function updateView() {
-            $.ajax({
-                url: `/api/post/update/views?id=${id}`,
-                type: 'PUT',
-                success: function (data) {
-                    console.log(data);
-                    $(".view").text(data);
-                },
-                error: function (e) {
-                    console.log(e);
-                }
-            })
-        }
-
-        const content = [
-            'Bài viết rất hay',
-            'Thật sự rất lôi cuống',
-            'Tôi rất thích bài viết này',
-            'Đó là một trải nghiệm tuyệt vời',
-            'Hay',
-            'Đó là một kiến thức tuyệt vời',
-            'Kiến thức thật bộ ích',
-            'Tôi sẽ chia sẻ bài viết này cho bạn bè của tôi',
-            'Cảm ơn bạn đã chia sẻ bài viết này',
-        ]
-
-        function comment() {
-            const userIdRandom = Math.max(3, Math.floor(Math.random() * 15) + 1)
-            $.ajax({
-                url: `/api/post/comment?postId=${id}`,
-                type: 'POST',
-                data: JSON.stringify({
-                    content: content[Math.floor(Math.random() * content.length)],
-                    author: userIdRandom
-                }),
-                contentType: 'application/json',
-                success: function (data) {
-                    console.log(data);
-                },
-                error: function (e) {
-                    console.log(e);
-                }
-            })
-        }
-
-        setInterval(function () {
-            updateView();
-        }, 5000);
-
-        setInterval(function () {
-            comment();
-        }, 30000);
-    })
-</script>
 </body>
 </html>
