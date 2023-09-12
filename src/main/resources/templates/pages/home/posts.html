@@ -204,7 +204,7 @@
                 <div class="offcanvas-body justify-content-end">
                     <ul id="navbar" class="navbar-nav d-flex justify-content-end flex-wrap list-unstyled m-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                            <a class="nav-link" th:href="@{/}" role="button" data-bs-toggle="dropdown"
                                aria-expanded="true">Home
                                 <svg class="bi" width="10" height="10">
                                     <use xlink:href="#caret-down"></use>
@@ -212,7 +212,7 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">Blog
+                            <a class="nav-link" th:href="@{/post(filter = all)}" role="button">Blog
                                 <svg class="bi" width="10" height="10">
                                     <use xlink:href="#caret-down"></use>
                                 </svg>
@@ -220,27 +220,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/contact}">Contact</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <div class="user-items">
-                                <ul class="d-flex justify-content-end list-unstyled m-0">
-                                    <li>
-                                        <a href="login.html">
-                                            <svg class="bi" width="20" height="20">
-                                                <use xlink:href="#person"></use>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="search-button">
-                                            <svg class="bi" width="20" height="20">
-                                                <use xlink:href="#search"></use>
-                                            </svg>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
 
                     </ul>
